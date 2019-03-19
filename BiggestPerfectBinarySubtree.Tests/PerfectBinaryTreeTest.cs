@@ -89,7 +89,7 @@ namespace BiggestPerfectBinarySubtree.Tests
             root.Insert(796); // Level 7
             Assert.AreEqual(4, PerfectBinaryTree.HighestPerfectSubtreeHeight(root));
         }
-        public void ImperfectBinaryTreeShould7NodesOfHighestPerfectSubtree()
+        public void ImperfectBinaryTreeShouldReturn7NodesOfHighestPerfectSubtree()
         {
             BinaryTree root = new BinaryTree(10);
             root.Insert(8);
