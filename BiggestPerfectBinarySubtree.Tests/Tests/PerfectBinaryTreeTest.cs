@@ -1,4 +1,5 @@
 using BiggestPerfectBinarySubtree.Classes;
+using BiggestPerfectBinarySubtree.Tests.ObjectMother;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BiggestPerfectBinarySubtree.Tests
@@ -6,39 +7,14 @@ namespace BiggestPerfectBinarySubtree.Tests
     [TestClass]
     public class PerfectBinaryTreeTest
     {
-        private BinaryTree CreatePerfectTreeWith3Levels()
-        {
-            BinaryTree root = new BinaryTree(1000);  // Level 1
-            root.Insert(800); // Level 2
-            root.Insert(700); // Level 3
-            root.Insert(900); // Level 3
-            root.Insert(1200); // Level 2
-            root.Insert(1100); // Level 3
-            root.Insert(1300); // Level 3
-            return root;
-        }
-        private BinaryTree CreatePerfectTreeWith4Levels()
-        {
-            BinaryTree root = CreatePerfectTreeWith3Levels();
-            root.Insert(650); // Level 4
-            root.Insert(750); // Level 4
-            root.Insert(850); // Level 4
-            root.Insert(950); // Level 4
-            root.Insert(1050); // Level 4
-            root.Insert(1150); // Level 4
-            root.Insert(1250); // Level 4
-            root.Insert(1350); // Level 4
-            return root;
-        }
-
         [TestMethod]
-        public void BinaryTreeWith3LevelsShouldBePerfect() => Assert.IsTrue(PerfectBinaryTree.IsPerfect(CreatePerfectTreeWith3Levels()));
+        public void BinaryTreeWith3LevelsShouldBePerfect() => Assert.IsTrue(PerfectBinaryTree.IsPerfect(BinaryTreeObjectMother.CreatePerfectTreeWith3Levels()));
         [TestMethod]
-        public void BinaryTreeWith4LevelsShouldBePerfect() => Assert.IsTrue(PerfectBinaryTree.IsPerfect(CreatePerfectTreeWith4Levels()));
+        public void BinaryTreeWith4LevelsShouldBePerfect() => Assert.IsTrue(PerfectBinaryTree.IsPerfect(BinaryTreeObjectMother.CreatePerfectTreeWith4Levels()));
         [TestMethod]
         public void BinaryTreeWith3LevelsShouldNotBePerfect()
         {
-            BinaryTree root = CreatePerfectTreeWith3Levels();
+            BinaryTree root = BinaryTreeObjectMother.CreatePerfectTreeWith3Levels();
             BinaryTree node80 = root.Find(800);
             node80.Left = null;
             Assert.IsFalse(PerfectBinaryTree.IsPerfect(root));
@@ -46,19 +22,19 @@ namespace BiggestPerfectBinarySubtree.Tests
         [TestMethod]
         public void BinaryTreeWith4LevelsShouldNotBePerfect()
         {
-            BinaryTree root = CreatePerfectTreeWith4Levels();
+            BinaryTree root = BinaryTreeObjectMother.CreatePerfectTreeWith4Levels();
             BinaryTree node110 = root.Find(1100);
             node110.Right = null;
             Assert.IsFalse(PerfectBinaryTree.IsPerfect(root));
         }
         [TestMethod]
-        public void PerfectBinaryTreeWith3LevelsShouldHighestPerfectSubtreeOf2() => Assert.AreEqual(2, PerfectBinaryTree.HighestPerfectSubtreeHeight(CreatePerfectTreeWith3Levels()));
+        public void PerfectBinaryTreeWith3LevelsShouldHighestPerfectSubtreeOf2() => Assert.AreEqual(2, PerfectBinaryTree.BiggestPerfectSubtreeHeight(BinaryTreeObjectMother.CreatePerfectTreeWith3Levels()));
         [TestMethod]
-        public void PerfectBinaryTreeWith4LevelsShouldHighestPerfectSubtreeOf3() => Assert.AreEqual(3, PerfectBinaryTree.HighestPerfectSubtreeHeight(CreatePerfectTreeWith4Levels()));
+        public void PerfectBinaryTreeWith4LevelsShouldHighestPerfectSubtreeOf3() => Assert.AreEqual(3, PerfectBinaryTree.BiggestPerfectSubtreeHeight(BinaryTreeObjectMother.CreatePerfectTreeWith4Levels()));
         [TestMethod]
         public void ImperfectBinaryTreeWith7LevelsShouldHighestPerfectSubtreeOf4()
         {
-            BinaryTree root = CreatePerfectTreeWith4Levels();
+            BinaryTree root = BinaryTreeObjectMother.CreatePerfectTreeWith4Levels();
             root.Insert(500); // Level 5
             root.Insert(450); // Level 6
             root.Insert(440); // Level 7
@@ -87,7 +63,7 @@ namespace BiggestPerfectBinarySubtree.Tests
             root.Insert(795); // Level 6
             root.Insert(794); // Level 7
             root.Insert(796); // Level 7
-            Assert.AreEqual(4, PerfectBinaryTree.HighestPerfectSubtreeHeight(root));
+            Assert.AreEqual(4, PerfectBinaryTree.BiggestPerfectSubtreeHeight(root));
         }
         public void ImperfectBinaryTreeShouldReturn7NodesOfHighestPerfectSubtree()
         {
@@ -102,7 +78,7 @@ namespace BiggestPerfectBinarySubtree.Tests
             root.Insert(25);
             root.Insert(40);
             root.Insert(35);
-            Assert.AreEqual(7, PerfectBinaryTree.HighestPerfectSubtreeNodesQuantity(CreatePerfectTreeWith4Levels()));
+            Assert.AreEqual(7, PerfectBinaryTree.BiggestPerfectSubtreeNodes(BinaryTreeObjectMother.CreatePerfectTreeWith4Levels()));
         }
     }
 }
