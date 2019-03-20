@@ -26,5 +26,6 @@ namespace BiggestPerfectBinarySubtree.Classes
             else
                 return Right == null ? Right = new BinaryTree(val) : Right.Insert(val);
         }
+        public int Count() => 1 + (Left?.Count() ?? 0) + (Right?.Count() ?? 0);
     }
 }
