@@ -116,4 +116,4 @@ This solution was made with:
 - **Microsoft [Visual Studio](https://visualstudio.microsoft.com "Visual Studio") Enterprise 2019 RC (Preview 4.3)**
 - **Joel Martin's [Binary Tree Visualization](https://kanaka.github.io/rbt_cfs/trees.html "Binary Tree Visualization")** _(used to create the images of the sample Binary Trees)_
 - **Pandao's [Editor.md](https://pandao.github.io/editor.md/en.html "MD Editor")** _(used to write this README.md file)_
-- ** [Douglas Wilhelm Harder](https://github.com/dwharder "Douglas Wilhelm Harder")'s [explanations of Perfect Binary Trees](https://ece.uwaterloo.ca/~cmoreno/ece250/4.05.PerfectBinaryTrees.pdf "explanations of Perfect Binary Trees")**
+- **[Douglas Wilhelm Harder](https://github.com/dwharder "Douglas Wilhelm Harder")'s [explanations of Perfect Binary Trees](https://ece.uwaterloo.ca/~cmoreno/ece250/4.05.PerfectBinaryTrees.pdf "explanations of Perfect Binary Trees")**
